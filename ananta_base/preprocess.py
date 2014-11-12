@@ -1,14 +1,13 @@
 __author__ = 'lakmal'
 
 import base
-<<<<<<< HEAD
+
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.feature_selection import chi2
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import SelectPercentile
 import numpy as np
-=======
->>>>>>> origin/master
+
 
 class DataCleaningProfile(base.Profile):
 
@@ -20,7 +19,6 @@ class DataCleaningProfile(base.Profile):
 
     def show(self, params):
         print "Showing stats in cleaned data"
-<<<<<<< HEAD
 
 
 class Reduction:
@@ -54,5 +52,4 @@ class Reduction:
         transformer = SelectPercentile(percentile=percentage)
         output = transformer.transform(self.array)
         print np.array(output).shape
-=======
->>>>>>> origin/master
+
