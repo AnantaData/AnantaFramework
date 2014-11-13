@@ -43,13 +43,6 @@ class Profile():
         print "Showing stats in modified data"
 
 
-class ParameterSet:
-
-    def __init__(self):
-        self.steps = []
-
-    def addStep(self, step):
-        self.steps.append(step)
 
 
 class Step():

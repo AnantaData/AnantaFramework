@@ -21,10 +21,21 @@ class DataCleaningProfile(base.Profile):
         print "Showing stats in cleaned data"
 
 
-class Reduction:
+class DataReductionProfile(base.Profile):
 
-    def __init__(self,numpyArray):
-        self.array = np.array(numpyArray)
+    def set(self, paramset):
+        print "Setting parameters in data reduction subprofile "
+        self.paramset = paramset
+
+    def execute(self, miningprofile):
+        m = globals()['DataReductionProfile']()
+        for step in self.paramset.steps:
+            func = getattr(m, step.type)
+            func(step,miningprofile)
+
+    def show(self, params):
+        print "Showing stats in reduced data"
+
 
     #removes features which has a probability less than 'input_threshold'
     def varianceThreshold(self,input_threshold=0.6):
@@ -34,7 +45,7 @@ class Reduction:
         return reduced_array
 
     #for Classification, selects the two best features
-    def chiSquareTest(self):
+    def chi_square_test(self,params,miningprofile):
 
         X_new = SelectKBest(score_func=chi2, k=2)
         X_r = X_new.transform(self.array)
