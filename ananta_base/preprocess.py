@@ -6,6 +6,7 @@ from sklearn.feature_selection import VarianceThreshold
 from sklearn.feature_selection import chi2
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import SelectPercentile
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import numpy as np
 
 ''' Data Transformation code region '''
@@ -37,9 +38,9 @@ class DataTransformationProfile(base.Profile):
 class EncodingStep(object):
 
     def executeStep(self,dataset):
-        if self.encoding='one_hot':
+        if self.encoding == 'one_hot' :
             dataset=self.BitmapEncode(dataset)
-        else if self.encoding='label':
+        else if self.encoding == 'label':
             dataset=self.LabelEncode(dataset)
 
         return dataset
