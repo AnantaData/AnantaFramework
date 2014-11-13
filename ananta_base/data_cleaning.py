@@ -7,11 +7,18 @@ from scipy import stats
 from sklearn.preprocessing import Imputer
 
 
-class Cleaning:
-    def __init__(self, nparray):
-        self.nparray = nparray
+class DataCleaningProfile:
+
+
+    def __init__(self):
+        self.steps = []
+
+    def addStep(self, step):
+        self.steps.append(step)
 
     # ----------Data Cleaning-Missing Values-----------#
+
+
 
     # -----------Ignore the tuple----------------------#
     def ignoreTuple(self, column_no):
@@ -75,3 +82,9 @@ class Cleaning:
         # print self.nparray
         snparray = self.nparray[np.isnan(self.nparray).any(axis=2)]
         print  snparray
+
+
+class IgnoreTupleStep():
+
+    def __init__(self):
+        self.type = "ignore_tuple"
