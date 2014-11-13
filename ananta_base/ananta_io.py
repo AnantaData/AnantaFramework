@@ -1,4 +1,4 @@
-from ananta_base.base import Profile
+from ananta_base.base import Profile, ParameterSet
 import pandas
 
 __author__ = 'lakmal'
@@ -17,7 +17,7 @@ class FileLoadingProfile(Profile):
         m = globals()['FileLoadingProfile']()
         for step in self.paramset.steps:
             func = getattr(m, step.type)
-            func(step.params,miningprofile)
+            func(step,miningprofile)
 
     def show(self, params):
         print "Showing stats in loaded files"
@@ -35,3 +35,10 @@ class FileLoadingProfile(Profile):
             miningprofile.trainingsets.insert(params.loadindex, dataset)
         elif(params.loadto =="testset"):
             miningprofile.testsets[params.loadindex] = dataset
+
+
+class FileLoadStep():
+
+    def __init__(self):
+        self.type = "file_load"
+
