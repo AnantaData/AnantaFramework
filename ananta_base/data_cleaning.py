@@ -9,44 +9,44 @@ from sklearn.preprocessing import Imputer
 
 class Cleaning:
     def __init__(self, nparray):
-        self.nparray = nparray
+         self.nparray = nparray
 
     # ----------Data Cleaning-Missing Values-----------#
 
     # -----------Ignore the tuple----------------------#
-    def ignoreTuple(self, column_no):
+    def ignore_tuple(self, column_no,nparray):
         loop = 0
-        while loop < np.alen(self.nparray):
-            if str(self.nparray[loop, column_no]) == 'nan':
-                self.nparray = np.delete(self.nparray, loop, 0)
+        while loop < np.alen(nparray):
+            if str(nparray[loop, column_no]) == 'nan':
+                nparray = np.delete(nparray, loop, 0)
                 loop = loop
             else:
                 loop = loop + 1
-        return self.nparray
+        return nparray
 
     #------------- Use global constant-----------------#
-    def use_global_constant(self, column_no,constant):
+    def use_global_constant(self, column_no,constant,nparray):
         loop = 0
-        while loop < np.alen(self.nparray):
-            if str(self.nparray[loop, column_no]) == 'nan':
-                self.nparray[loop,column_no] = constant
+        while loop < np.alen(nparray):
+            if str(nparray[loop, column_no]) == 'nan':
+                nparray[loop,column_no] = constant
             loop = loop + 1
-        return self.nparray
+        return nparray
 
     #------------- Attribute mean mode median ----------#
-    def attribute_mean(self, column_no):
-        selct_column_array = np.asarray(self.nparray[:,column_no])
-        mean= np.nanmean(list(selct_column_array))
-        return self.use_global_constant(column_no,mean)
+    def attribute_mean(self, column_no,nparray):
+        selct_column_array = np.asarray(nparray[:,column_no])
+        get_mean= np.nanmean(list(selct_column_array))
+        return self.use_global_constant(column_no,get_mean,nparray)
 
-    def attribute_median(self, column_no):
-        selct_column_array = np.asarray(self.nparray[:,column_no])
-        mean= np.median(list(selct_column_array))
-        return self.use_global_constant(column_no,mean)
+    def attribute_median(self, column_no,nparray):
+        selct_column_array = np.asarray(nparray[:,column_no])
+        get_median= np.median(list(selct_column_array))
+        return self.use_global_constant(column_no,get_median,nparray)
 
-    def attribute_mode(self, column_no):
-        get_mode = mode(self.nparray[:,column_no])[0][0]
-        return self.use_global_constant(column_no,get_mode)
+    def attribute_mode(self, column_no,nparray):
+        get_mode = mode(nparray[:,column_no])[0][0]
+        return self.use_global_constant(column_no,get_mode,nparray)
 
     #     Attribute mean for all samples belonging to the same class as the given tuple
     def attribute_mean_wrt_another(self, column_no, ref_column_no):
@@ -65,13 +65,8 @@ class Cleaning:
     #---------------- Replace function ----------------
     def replace_by_attribute(self, attribute, column_no, nparray):
         loop = 0
-        while loop < np.alen(self.nparray):
+        while loop < np.alen(nparray):
             nparray[loop, column_no] = attribute
             loop = loop + 1
         return nparray
 
-    def myFirst(self):
-        #print self.nparray[:,[3]]
-        # print self.nparray
-        snparray = self.nparray[np.isnan(self.nparray).any(axis=2)]
-        print  snparray
