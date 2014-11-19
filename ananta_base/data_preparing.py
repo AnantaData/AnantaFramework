@@ -1,11 +1,8 @@
-from ananta_base.base import Profile
-import pandas
 
 __author__ = 'lakmal'
 
 
-
-class FileLoadingProfile():
+class DataPreparingProfile:
 
     def __init__(self):
         self.steps = []
@@ -20,11 +17,12 @@ class FileLoadingProfile():
         dataset.data = data
 
 
-class FileLoadStep():
+class DataSortStep:
 
     def execute(self,data):
-        if(self.filetype=="csv"):
-            data = pandas.read_csv(self.filepath)
-        elif(self.filetype=="xls"):
-            data = pandas.read_excel(self.filepath)
-        return data
+        return data.sort(self.fieldname)
+
+class DataSelectStep:
+
+    def execute(self,data):
+        return eval(self.selectlogic)

@@ -25,7 +25,7 @@ class Cleaning:
         return nparray
 
     #------------- Use global constant-----------------#
-    def use_global_constant(self, column_no,constant,nparray):
+    def fill_global_constant(self, column_no,constant,nparray):
         loop = 0
         while loop < np.alen(nparray):
             if str(nparray[loop, column_no]) == 'nan':
@@ -70,3 +70,17 @@ class Cleaning:
             loop = loop + 1
         return nparray
 
+class IgnoreTupleStep:
+
+    def __init__(self):
+        self.type = "ignore_tuple"
+
+class FillGlobalConstStep():
+
+    def __init__(self):
+        self.type = "fill_global_constant"
+
+class FillAttrMeanStep():
+
+    def __init__(self):
+        self.type = "fill_attribute_mean"
