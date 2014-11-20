@@ -118,44 +118,61 @@ class DataCleaningProfile(base.Profile):
 
 class DataReductionProfile(base.Profile):
 
-    def set(self, paramset):
-        print "Setting parameters in data reduction subprofile "
-        self.paramset = paramset
+    def __init__(self):
+        self.steps = []
 
-    def execute(self, miningprofile):
-        m = globals()['DataReductionProfile']()
-        for step in self.paramset.steps:
-            func = getattr(m, step.type)
-            func(step,miningprofile)
+    def addStep(self, step):
+        self.steps.append(step)
 
-    def show(self, params):
-        print "Showing stats in reduced data"
+    def execute(self, dataset):
+        data = dataset.data
+        for step in self.steps:
+            data = step.execute(data)
+        dataset.data = data
+
+'''drop a list of columns from column names'''
+class DropColumnsByNameStep:
+
+    def execute(self,data):
+        return data.drop(self.columnNames,inplace=True,axis=1)  # columnNames is a list of strings
 
 
-    #removes features which has a probability less than 'input_threshold'
-    def varianceThreshold(self,input_threshold=0.6):
+'''drop a list of columns from column index'''
+class DropColumnsByIndexStep:
 
-        sel = VarianceThreshold(threshold=(input_threshold * (1 - input_threshold)))
-        reduced_array = sel.fit_transform(self.array)
-        return reduced_array
+    def execute(self,data):
+        return data.drop(self.columnIndexes,inplace=True,axis=1)  # columnIndexes is a list of strings
 
-    #for Classification, selects the two best features
-    def chi_square_test(self,params,miningprofile):
 
-        X_new = SelectKBest(score_func=chi2, k=2)
-        X_r = X_new.transform(self.array)
-        print X_r
+'''remove columns which are below a variance threshold'''
+class VarianceThresholdStep:
 
-    #select the k best features
-    def selectKbest(self,k=2):
+    def execute(self,data):
 
-        transformer =  SelectKBest( k)
-        output = transformer.transform(self.array)
-        print output
+        listOfNames = data.var(axis=0, skipna=True, level=None, numeric_only=True)
 
-    def selectPercentile(self,percentage=60):
+        dropList = []
+        for i in listOfNames.index:
+            variance = listOfNames.ix[i]
+            if(variance < self.varianceThreshold):
+                dropList.append(i)
 
-        transformer = SelectPercentile(percentile=percentage)
-        output = transformer.transform(self.array)
-        print np.array(output).shape
+        x = DropColumnsByNameStep()
+
+        self.columnNames = dropList
+        return x.execute(data)
+
+
+'''select best k features - for classification'''
+class SelectKBestStep:
+
+    def execute(self,data):
+
+        transformer =  SelectKBest(score_func=chi2,self.k)
+        output = transformer.fit(data.x,data.y).get_support(indices=True)     # data.x are features of the dataset, data.y are the targets
+
+        newData = data.ix[:,(output)]
+
+        return newData
+
 
