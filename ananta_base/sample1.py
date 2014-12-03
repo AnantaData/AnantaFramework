@@ -1,4 +1,5 @@
 from ananta_base.base import *
+from ananta_base.data_cleaning_pan import DataCleaningProfile, UseGlobalConstantStep
 from ananta_base.data_io import FileLoadingProfile, FileLoadStep
 #from ananta_base.preprocess import DataCleaningProfile
 from ananta_base.data_preparing import DataPreparingProfile, DataSortStep, DataSelectStep
@@ -26,5 +27,9 @@ dpp1.addStep(s3)
 
 dpp1.execute(projects)
 
+dcp1 = DataCleaningProfile()
+s4 = UseGlobalConstantStep([5],['total_price_including_optional_support'])
+dcp1.addStep(s4)
+dcp1.execute(projects)
 
 print projects.data

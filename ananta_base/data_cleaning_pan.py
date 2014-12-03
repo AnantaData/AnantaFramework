@@ -2,7 +2,7 @@ __author__ = 'tiroshan'
 import pandas as pd
 import numpy as np
 
-class DatacleaningProfile:
+class DataCleaningProfile:
     def __init__(self):
         self.steps = []
 
