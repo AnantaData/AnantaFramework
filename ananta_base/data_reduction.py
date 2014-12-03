@@ -28,6 +28,9 @@ class DataReductionProfile(base.Profile):
 '''drop a list of columns from column names'''
 class DropColumnsByNameStep:
 
+    def __init__(self,columnNames):
+        self.columnNames= columnNames
+
     def execute(self,data):
         return data.drop(self.columnNames,inplace=True,axis=1)  # columnNames is a list of strings
 
@@ -35,12 +38,18 @@ class DropColumnsByNameStep:
 '''drop a list of columns from column index'''
 class DropColumnsByIndexStep:
 
+    def __init__(self,columnIndexes):
+        self.columnIndexes = columnIndexes
+
     def execute(self,data):
         return data.drop(self.columnIndexes,inplace=True,axis=1)  # columnIndexes is a list of strings
 
 
 '''remove columns which are below a variance threshold'''
 class VarianceThresholdStep:
+
+    def __init__(self,varianceThreshold):
+        self.varianceThreshold = varianceThreshold
 
     def execute(self,data):
 
@@ -52,18 +61,20 @@ class VarianceThresholdStep:
             if(variance < self.varianceThreshold):
                 dropList.append(i)
 
-        x = DropColumnsByNameStep()
+        x = DropColumnsByNameStep(dropList)
 
-        self.columnNames = dropList
         return x.execute(data)
 
 
 '''select best k features - for classification'''
 class SelectKBestStep:
 
+    def __init__(self,kFeatures):
+        self.kFeatures = kFeatures
+
     def execute(self,data):
 
-        transformer =  SelectKBest(score_func=chi2,self.k)
+        transformer =  SelectKBest(score_func=chi2, k=self.kFeatures)
         output = transformer.fit(data.x,data.y).get_support(indices=True)     # data.x are features of the dataset, data.y are the targets
 
         newData = data.ix[:,(output)]
