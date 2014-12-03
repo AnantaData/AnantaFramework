@@ -22,6 +22,10 @@ class FileLoadingProfile():
 
 class FileLoadStep():
 
+    def __init__(self,filetype, filepath):
+        self.filetype = filetype
+        self.filepath = filepath
+
     def execute(self,data):
         if(self.filetype=="csv"):
             data = pandas.read_csv(self.filepath)
