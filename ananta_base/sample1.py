@@ -10,18 +10,14 @@ __author__ = 'lakmal'
 projects = TrainingSet()
 
 flp1 = FileLoadingProfile()
-s1 = FileLoadStep()
-s1.filepath = "/home/lakmal/PycharmProjects/AnantaUi/Data/projects.csv"
-s1.filetype = "csv"
+s1 = FileLoadStep("csv", "/home/lakmal/PycharmProjects/AnantaUi/Data/projects.csv")
 flp1.addStep(s1)
 
 flp1.execute(projects)
 
 dpp1 = DataPreparingProfile()
-s2 = DataSortStep()
-s2.fieldname = "projectid"
-s3 = DataSelectStep()
-s3.selectlogic = "data.loc[data['date_posted'] < '2014-01-01']"
+s2 = DataSortStep("projectid")
+s3 = DataSelectStep("data.loc[data['date_posted'] < '2014-01-01']")
 dpp1.addStep(s2)
 dpp1.addStep(s3)
 

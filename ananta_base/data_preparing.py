@@ -19,10 +19,16 @@ class DataPreparingProfile:
 
 class DataSortStep:
 
+    def __init__(self,fieldname):
+        self.fieldname = fieldname
+
     def execute(self,data):
         return data.sort(self.fieldname)
 
 class DataSelectStep:
+
+    def __init__(self,selectlogic):
+        self.selectlogic = selectlogic
 
     def execute(self,data):
         return eval(self.selectlogic)
