@@ -33,5 +33,25 @@ mp.execute(0)
 dcp1 = DataCleaningProfile()
 mp.profiles.append(dcp1)
 
+
+dtp1 = DataTransformationProfile()
+dtp1.dataset=data#from somewhere
+mp.profiles.append(dtp1)
+dtp1paramset= ParameterSet()
+dtp1.set(dtp1paramset)
+
+s3=BinningStep()
+s3.feature_set=np.array(['age','income','monthly_charge'])
+s3.typeset=np.array(['uni_depth','mini_max','mini_max'])
+
+s4= EncodingStep()
+s4.encoding='one_hot'
+
+
+dtp1paramset.addStep(s3)
+
+
+
+
 mp.set(1,"params from data cleaning ui")
 mp.execute(1)
