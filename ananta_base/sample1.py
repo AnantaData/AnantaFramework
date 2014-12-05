@@ -1,36 +1,29 @@
 from ananta_base.base import *
-from ananta_base.ananta_io import FileLoadingProfile, FileLoadStep
-from ananta_base.preprocess import DataCleaningProfile
+from ananta_base.data_cleaning_pan import DataCleaningProfile, UseGlobalConstantStep
+from ananta_base.data_io import FileLoadingProfile, FileLoadStep
+#from ananta_base.preprocess import DataCleaningProfile
+from ananta_base.data_preparing import DataPreparingProfile, DataSortStep, DataSelectStep
+from ananta_base.data_set import TrainingSet
+from ananta_base.data_transformation import DataTransformationProfile, EncodingStep
 
 __author__ = 'lakmal'
 
-mp = MiningProfile("","")
+projects = TrainingSet()
 
 flp1 = FileLoadingProfile()
-mp.profiles.append(flp1)
-
-flp1paramset = ParameterSet()
-flp1.set(flp1paramset)
-
-s1 = FileLoadStep()
-s1.filepath = "/home/lakmal/PycharmProjects/AnantaUi/Data/projects.csv"
-s1.filetype = "csv"
-s1.loadto = "trainingset"
-s1.loadindex = 0
-
-s2 = FileLoadStep()
-s2.type="file_load"
-s2.filepath = "/home/lakmal/PycharmProjects/AnantaUi/Data/projects.csv"
-s2.filetype = "csv"
-s2.loadto = "trainingset"
-s2.loadindex = 1
-
-flp1paramset.addStep(s1)
-flp1paramset.addStep(s2)
-
-mp.execute(0)
+s1 = FileLoadStep("csv", "/home/lakmal/PycharmProjects/AnantaUi/Data/projects.csv")
+flp1.addStep(s1)
+flp1.execute(projects)
+'''
+dpp1 = DataPreparingProfile()
+s2 = DataSortStep("projectid")
+s3 = DataSelectStep("data.loc[data['date_posted'] < '2014-01-01']")
+dpp1.addStep(s2)
+dpp1.addStep(s3)
+dpp1.execute(projects)
 
 dcp1 = DataCleaningProfile()
+<<<<<<< HEAD
 mp.profiles.append(dcp1)
 
 
@@ -55,3 +48,15 @@ dtp1paramset.addStep(s3)
 
 mp.set(1,"params from data cleaning ui")
 mp.execute(1)
+=======
+s4 = UseGlobalConstantStep([5],['total_price_including_optional_support'])
+dcp1.addStep(s4)
+dcp1.execute(projects)
+'''
+dtp1 = DataTransformationProfile()
+s5= EncodingStep('one_hot',['school_charter'])
+dtp1.addStep(s5)
+dtp1.execute(projects)
+
+print projects.data.school_charter
+>>>>>>> 033a93038fc951090251c1fe562a8548d08a36b3
