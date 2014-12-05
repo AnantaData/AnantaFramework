@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="e7915c5c-3850-4c91-9651-00a5e58e1160" name="Default" comment="" />
+=======
+    <list default="true" id="cf24799c-2628-464a-a14d-469520580553" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ananta_base/data_cleaning_pan.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ananta_base/data_io.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ananta_base/data_preparing.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ananta_base/data_reduction.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ananta_base/data_set.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ananta_base/data_transformation.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ananta_base/ananta_io.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ananta_base/preprocess.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ananta_base/base.py" afterPath="$PROJECT_DIR$/ananta_base/base.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ananta_base/data_cleaning.py" afterPath="$PROJECT_DIR$/ananta_base/data_cleaning.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ananta_base/sample1.py" afterPath="$PROJECT_DIR$/ananta_base/sample1.py" />
+    </list>
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
     <ignored path="AnantaFramework.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,6 +40,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
@@ -88,27 +106,53 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1380">
               <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+=======
+      <file leaf-file-name="base.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ananta_base/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1134">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="data_cleaning_pan.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ananta_base/data_cleaning_pan.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1170">
               <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="20" selection-end-column="38" />
+=======
+      <file leaf-file-name="gsom.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ananta_base/mining/clustering/gsom/gsom.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="9558">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="base.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ananta_base/base.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="945">
               <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
               <folding />
+=======
+      <file leaf-file-name="kgsom.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ananta_base/mining/clustering/kgsom/kgsom.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7380">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
             </state>
           </provider>
         </entry>
@@ -121,6 +165,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+<<<<<<< HEAD
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -128,10 +173,15 @@
         <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
+=======
+    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/ananta_base/mining.py" />
         <option value="$PROJECT_DIR$/ananta_base/io.py" />
         <option value="$PROJECT_DIR$/ananta_base/base.py" />
@@ -146,14 +196,25 @@
         <option value="$PROJECT_DIR$/ananta_base/sample1.py" />
         <option value="$PROJECT_DIR$/ananta_base/data_transformation.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+=======
+        <option value="$PROJECT_DIR$/ananta_base/sample1.py" />
+        <option value="$PROJECT_DIR$/ananta_base/preprocess.py" />
+        <option value="$PROJECT_DIR$/ananta_base/mining/clustering/gsom/gsom.py" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="48" />
     <option name="y" value="-4" />
     <option name="width" value="1319" />
     <option name="height" value="773" />
+=======
+    <option name="y" value="24" />
+    <option name="width" value="1366" />
+    <option name="height" value="744" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -181,7 +242,10 @@
       <sortByType />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,7 +288,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="Data" />
+=======
+              <option name="myItemId" value="ananta_base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mining" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -238,12 +309,104 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ananta_base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mining" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clustering" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnantaFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnantaFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="AnantaWorkspace" />
+=======
+              <option name="myItemId" value="ananta_base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mining" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clustering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kgsom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnantaFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnantaFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ananta_base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mining" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clustering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gsom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnantaFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AnantaFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ananta_base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mining" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="clustering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fusion_gsom" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,12 +417,24 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="FullScreen" value="false" />
+=======
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -284,6 +459,9 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
+=======
+  <component name="RunManager">
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
     <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -405,6 +583,7 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+<<<<<<< HEAD
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Python.sample1" />
     </list>
@@ -472,10 +651,31 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf24799c-2628-464a-a14d-469520580553" name="Default" comment="" />
+      <created>1415861536320</created>
+      <updated>1415861536320</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="24" width="1366" height="744" extended-state="0" />
+    <editor active="false" />
+    <layout>
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -489,6 +689,21 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -506,6 +721,7 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+<<<<<<< HEAD
     <MESSAGE value="Commiting the initial development" />
     <MESSAGE value="Refactored ananta_base module" />
     <MESSAGE value="Change the coding structure of mining profile" />
@@ -516,11 +732,14 @@
     <MESSAGE value="refactored" />
     <MESSAGE value="added idea folder" />
     <option name="LAST_COMMIT_MESSAGE" value="added idea folder" />
+=======
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
@@ -588,12 +807,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
           <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+=======
+    <entry file="file://$PROJECT_DIR$/ananta_base/sample1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1116">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ananta_base/sample1.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="375">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
@@ -627,20 +853,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1116">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
           <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/ananta_base/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.72" vertical-offset="0" max-vertical-offset="126">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ananta_base/sample1.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="375">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
@@ -745,12 +983,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1170">
           <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+=======
+        <state vertical-scroll-proportion="0.70408165" vertical-offset="216" max-vertical-offset="1080">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ananta_base/base.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="945">
           <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
           <folding />
@@ -767,11 +1010,15 @@
     <entry file="file://$PROJECT_DIR$/AnantaWorkspace/Ananta.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+=======
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1134">
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
@@ -806,11 +1053,17 @@
     <entry file="file://$PROJECT_DIR$/AnantaWorkspace/Ananta.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+=======
+    <entry file="file://$PROJECT_DIR$/ananta_base/mining/clustering/gsom/gsom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9612">
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
@@ -915,6 +1168,15 @@
         <state vertical-scroll-proportion="0.07666099" vertical-offset="0" max-vertical-offset="587">
           <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/ananta_base/mining/clustering/kgsom/kgsom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7380">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+>>>>>>> 69094bb703f904374cd7dd45b886e5dd61279626
         </state>
       </provider>
     </entry>
