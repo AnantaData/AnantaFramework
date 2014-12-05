@@ -1,56 +1,45 @@
 __author__ = 'lakmal'
 
 import base
-
-
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import numpy as np
 
-''' Data Transformation code region '''
-################ Data Transformation Main Profile ################
-class DataTransformationProfile(base.Profile):
+class DataTransformationProfile():
 
-    steps =[]
-    dataset=None
+    def __init__(self):
+        self.steps = []
 
-    def set(self, params):
-        for param in params:
-            self.steps.append(param)
+    def addStep(self, step):
+        self.steps.append(step)
 
-        print "parameters in transformation subprofile set"
+    def execute(self, dataset):
+        data = dataset.data
+        for step in self.steps:
+            data = step.execute(data)
+        dataset.data = data
 
-    def execute(self, miningprofile):
-        for step in steps:
-            step.executeStep(dataset)
-
-        print "transfromation subprofile done"
-
-        return self.dataset
-
-    def show(self, params):
-        print "showing transformed data"
-
-####################### Data Transformation Steps #######################################################
 
 class EncodingStep(object):
 
-    def executeStep(self,dataset):
-        if self.encoding == 'one_hot' :
-            dataset=self.BitmapEncode(dataset)
-        else if self.encoding == 'label':
-            dataset=self.LabelEncode(dataset)
+    def __init__(self,encoding,fields):
+        self.encoding = encoding
+        self.fields = fields
 
+    def execute(self,data):
+        if self.encoding == 'one_hot' :
+            dataset=self.BitmapEncode(data,self.fields)
+        elif self.encoding == 'label':
+            dataset=self.LabelEncode(data,self.fields)
         return dataset
 
-
-
-    def BitmapEncode(self, inp_np_arry ):
-
+    def BitmapEncode(self,data,fields):
         bme = OneHotEncoder()
-        output_array = bme.fit(inp_np_arry)
-        output_array = bme.transform(output_array)
-
-        return output_array
+        for field in fields:
+            print data[field]
+            output_array = bme.fit(np.array(data[field]))
+            print output_array
+            data[field] = bme.transform(output_array)
+        return data
 
     def LabelEncode(self, inp_np_array ):
 
