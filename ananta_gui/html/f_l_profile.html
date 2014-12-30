@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="bs/css/bootstrap.min.css" rel="stylesheet">
+
+<title>Insert title here</title>
+<style>
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+</style>
+</head>
+<body>
+
+	<div id="block_" class="container"
+		style="width: 300px; height: 150px; background: url('f_ar.png'); opacity: 0.5;">
+		<button class="btn btn-danger" style="position : relative; top : 1px; left : 248px;">
+			<b>X</b>
+		</button>
+		<div class="row">
+			<div class="col-sm-3"
+				style="position: relative; top: 10px; left: 100px;">
+				<input type='file' style= 'visibility: none;'></input> 
+				<span class="btn btn-success btn-file"> Browse <input
+					type="file">
+				</span>
+
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- scripts go in here -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="bs/js/bootstrap.min.js"></script>
+
+</body>
+</html>
