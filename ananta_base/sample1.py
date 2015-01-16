@@ -12,6 +12,7 @@ flp1 = FileLoadingProfile()
 s1 = FileLoadStep("csv", "/home/lakmal/PycharmProjects/AnantaUi/Data/projects.csv")
 flp1.addStep(s1)
 flp1.execute(projects)
+print projects.data
 
 dpp1 = DataPreparingProfile()
 s2 = DataSortStep("projectid")

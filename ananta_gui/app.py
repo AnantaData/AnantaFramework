@@ -15,7 +15,7 @@ _chan.execute("i=0")
 
 def make_app():
     return Application([
-        (r"/static/(.*)", StaticFileHandler, {"path": "/home/gilgamesh/Documents/Ananta/Source/GUITEST/ananta_gui/html"}),
+        (r"/static/(.*)", StaticFileHandler, {"path": "/home/lakmal/PycharmProjects/AnantaFramework/ananta_gui/html"}),
         url(r"/", Handlers.HelloHandler),
         url(r"/ws/load",Handlers.FileLoadHandler),
         url(r"/ws/read_des",Handlers.DesReadHandler),
@@ -25,7 +25,7 @@ def make_app():
 
 def main():
     app = make_app()
-    app.listen(8888)
+    app.listen(8800)
     IOLoop.current().start()
 
 

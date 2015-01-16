@@ -2,21 +2,19 @@ from tornado.web import RequestHandler
 import app as ap
 file_load_st1="import ananta_base.data_io as dio \n\
 from ananta_base.data_set import TrainingSet\n\
-fi=open(\"/home/gilgamesh/hello.txt\",\"w\")\n\
-fi.write('fuck')\n\
 t=TrainingSet()\n\
 fp = dio.FileLoadingProfile()\n\
-fs = dio.FileLoadStep(\"csv\",\"~/Documents/Ananta/Data/CHURN_DUKE/data.csv\")\n\
+fs = dio.FileLoadStep(\"csv\",\"/home/lakmal/PycharmProjects/GSOM/data.csv\")\n\
 fp.addStep(fs)\n\
 T= fp.execute(t)\n\
 outp = T.data.describe().__repr__()\n\
-fi = open(\"~/Documents/Ananta/Source/GUITEST/ananta_gui/cache/des.txt\",\"w\")\n\
+fi = open(\"/home/lakmal/PycharmProjects/AnantaFramework/ananta_gui/cache/des.txt\",\"w\")\n\
 fi.write(str(outp))\n\
 strcols = []\n\
 for column in T.data.columns:\n\
 \tstrcols.append(column)\n\
 fi.close()\n\
-fi= open(\"~/Ananta/Source/GUITEST/ananta_gui/cache/fies.txt\",\"w\")\n\
+fi= open(\"/home/lakmal/PycharmProjects/AnantaFramework/ananta_gui/cache/fies.txt\",\"w\")\n\
 fi.write(str(strcols))\n\
 fi.close()"
 
