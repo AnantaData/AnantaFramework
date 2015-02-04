@@ -3,6 +3,7 @@ from clustering.gsom import gsom as gsom
 from clustering.kgsom import kgsom as kgsom
 from sklearn.cluster import KMeans
 import numpy as np
+import pandas as pd
 from scipy.stats import mode
 from sklearn.cluster import DBSCAN
 
@@ -46,6 +47,7 @@ class GSOMStep:
         self.mp = gsom.gsomap(SP=0.5,dims=self.dims,nr_s=6,lr_s=0.9,boolean=False, lrr =0.5,fd=0.5, n_jobs = 2)
 
     def execute(self,data):
+        data=np.array(data)
         try:
             self.mp.process_input(data)
             points=[]
@@ -64,7 +66,7 @@ class KGSOMStep:
         self.mp = kgsom.gsomap(SP=0.9999,dims=self.dims,nr_s=10,lr_s=0.01,fd=0.999,lrr=0.95,sig2=1000,prune=0.8)
 
     def execute(self,data):
-
+        data = np.array(data)
         print "executing on data"
         self.mp.process_batch(data)
         points=[]
@@ -72,9 +74,10 @@ class KGSOMStep:
         print "predicting"
         for inp in data:
             points.append(self.mp.predict_point(inp))
-        print "prediction done"
-        print np.array(points)
-        return np.array(points)
+        data = np.array(points).astype(int)
+        #print "prediction done"
+        #print np.array(points)
+        return data
 
 
 
@@ -109,13 +112,19 @@ class MapEvalStep:
 
     def execute(self,data):
         dbsc=DBSCAN(eps=2.828,min_samples=2)
-        dbsc.fit(data.data)
+        dbsc.fit(data)
 
         clusters= dbsc.labels_
 
         clustering=get_clust_dict(clusters,data.data)
         data.het=mean_inter_het(clustering)
         data.hom=mean_intra_hom(clustering)
+        op = pd.DataFrame(columns=['het','hom'])
+        op.het = data.het
+        op.hom= data.hom
+        op.to_csv('stat.csv',encoding='utf-8')
+        return data
+
 
 
 def get_clust_dict(labels, data):

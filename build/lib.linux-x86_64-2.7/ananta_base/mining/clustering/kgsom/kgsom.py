@@ -167,7 +167,7 @@ class gsomap(object):
 
 
     def predict_point(self, input_array):
-        print "input :",input_array
+        #print "input :",input_array
         bmu = self.bmu_gaus(np.array(input_array))
         #bmu = self.parallel_search_bmu(input_array)
         return bmu.coords()
