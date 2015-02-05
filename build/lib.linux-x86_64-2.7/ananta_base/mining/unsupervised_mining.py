@@ -23,6 +23,14 @@ def _get_prf(res_set):
 
 
 
+class SOMStep:
+
+
+    def __init__(self,dimensions):
+        '''som code here'''
+    def execute(self,data):
+       '''som exec and pred'''
+
 
 
 class UnsupervisedMiningProfile:
@@ -101,6 +109,32 @@ class KmeanStep:
 
 ''' Cluster Quality Calculations'''
 
+class KMeanEvalStep:
+    def __init__(self):
+        self.precs=[]
+        self.recs=[]
+        self.fs=[]
+        self.heteval=None
+        self.homeval=None
+
+    def execute(self,data):
+        dbsc=DBSCAN(eps=2.828,min_samples=2)
+        #print data
+        dbsc.fit(data)
+
+        clusters= dbsc.labels_
+        #print clusters
+        clustering=get_clust_dict(clusters,data)
+        #print clustering
+        het=mean_inter_het(clustering)
+        hom=mean_intra_hom(clustering)
+
+        op = pd.DataFrame(columns=['het','hom'])
+        op.het = [het]
+        op.hom= [hom]
+        op.to_csv('stat.csv', sep=',', encoding='utf-8')
+        return data
+
 class MapEvalStep:
 
     def __init__(self):
@@ -112,17 +146,20 @@ class MapEvalStep:
 
     def execute(self,data):
         dbsc=DBSCAN(eps=2.828,min_samples=2)
+        #print data
         dbsc.fit(data)
 
         clusters= dbsc.labels_
+        #print clusters
+        clustering=get_clust_dict(clusters,data)
+        #print clustering
+        het=mean_inter_het(clustering)
+        hom=mean_intra_hom(clustering)
 
-        clustering=get_clust_dict(clusters,data.data)
-        data.het=mean_inter_het(clustering)
-        data.hom=mean_intra_hom(clustering)
         op = pd.DataFrame(columns=['het','hom'])
-        op.het = data.het
-        op.hom= data.hom
-        op.to_csv('stat.csv',encoding='utf-8')
+        op.het = [het]
+        op.hom= [hom]
+        op.to_csv('stat.csv', sep=',', encoding='utf-8')
         return data
 
 
@@ -140,7 +177,7 @@ def get_clust_dict(labels, data):
 def get_centroids(clustering):
     centroids=[]
     for k in clustering.keys():
-        cluster=np.array(clustering[k]).astype(int)
+        cluster=np.array(clustering[k])
         #print cluster
         centroids.append(np.sum(cluster,axis=0)/cluster.shape[0])
     return np.array(centroids)
