@@ -135,11 +135,7 @@ class KMeanEvalStep:
         self.homeval=None
 
     def execute(self,data):
-        dbsc=DBSCAN(eps=2.828,min_samples=2)
-        #print data
-        dbsc.fit(data)
-
-        clusters= dbsc.labels_
+        clusters=data
         #print clusters
         clustering=get_clust_dict(clusters,data)
         #print clustering
