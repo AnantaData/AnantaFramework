@@ -30,6 +30,7 @@ class SupervisedMiningProfile:
         print 'setting training data'
         dataset.train_X = np.array(dataset.data.drop(self.col_Y, axis=1))
         dataset.test_X=dataset.train_X
+        
         print 'done'
         bmi=False
         print 'ready to execute profile...Executing!'
