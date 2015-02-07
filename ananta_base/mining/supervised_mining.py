@@ -94,6 +94,11 @@ class PredictStep:
 
     def execute(self, dataset, classifier=None, ohec = False):
         print 'executing prediction...'
+
+        if dataset.test_X is None:
+
+            dataset.test_X=dataset.train_X
+
         if ohec:
             oh = OneHotEncoder()
             dataset.test_X=oh.fit(dataset.test_X)
