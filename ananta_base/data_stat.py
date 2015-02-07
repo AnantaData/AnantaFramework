@@ -20,3 +20,6 @@ def getStatistics(trainingSet, filename_prefix):
     df = trainingSet.data
     types_list = df.dtypes
     types_list.to_csv(types_save, sep=",", encoding="utf-8")
+
+    data_save = str(filename_prefix)+"data.csv"
+    trainingSet.data.to_csv(data_save, sep=",", encoding="utf-8")
