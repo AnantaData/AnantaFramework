@@ -74,7 +74,19 @@ class GSOMStep:
             points=[]
             for inp in data:
                 points.append(self.mp.predict_point(np.array(inp)))
+            df = pd.DataFrame(columns = ['x', 'y', 'c'])
+            x =[]
+            y = []
+            c =[]
+            for elem in data :
+                x.append(elem[0])
+                y.append(elem[1])
+                c.append('g')
+            df['x']=x
+            df['y']=y
+            df['c']=c
 
+            df.to_csv('somout.csv')
             return np.array(points)
         except:
             return 'error occured while training / predicting'
@@ -96,7 +108,20 @@ class KGSOMStep:
         for inp in data:
             points.append(self.mp.predict_point(inp))
         data = np.array(points).astype(int)
-        #print "prediction done"
+
+        df = pd.DataFrame(columns = ['x', 'y', 'c'])
+        x =[]
+        y = []
+        c =[]
+        for elem in data :
+            x.append(elem[0])
+            y.append(elem[1])
+            c.append('g')
+        df['x']=x
+        df['y']=y
+        df['c']=c
+
+        df.to_csv('somout.csv')        #print "prediction done"
         #print np.array(points)
         return data
 

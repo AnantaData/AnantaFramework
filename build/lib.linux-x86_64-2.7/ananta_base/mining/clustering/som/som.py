@@ -11,6 +11,7 @@ class SOM(object):
     Constructor Function: Takes as input the following parameters x_size : the width of the map desired
     y_size : the height of the  map desired input_dims : the dimensinality of the vectors the som is trained to deal with
     '''
+
     def __init__(self,x_size,y_size,input_dims):
         self.num_x=x_size
         self.num_y=y_size
@@ -54,6 +55,7 @@ class SOM(object):
     The adjust method will adjust the weight of the given neuron (node in the map) to be closer to a target vector
     A simple application of the delta rule is applied  here
     '''
+
     def _adjust(self,neuron,input,alpha):
 
         for i in range(neuron.shape[0]):
@@ -76,6 +78,7 @@ class SOM(object):
     '''
     Applies the _train_map method iteratively to a batch of training vectors.
     '''
+
     def _train_map(self,data,alpha,alpha_min,decay):
         iterations = 0
         while alpha > alpha_min:
@@ -90,17 +93,18 @@ class SOM(object):
     '''
     Applies the train_map method to one training vector
     '''
+
     def _train_map_one_vector(self,input_vector,alpha):
 
         self._reweight(input_vector,self._get_min_dissimilarity(input_vector),self.neurons,alpha)
         return
 
     '''
-    Predict the best matching unit for a particular input
+    After training the map to predict the most similar neuron in the map
     '''
     def _predict(self,input):
-        return self._get_min_dissimilarity(input)
-
+        coords = self._get_min_dissimilarity(input)
+        return coords
 '''
 def som(data,x_size,y_size,input_dims,decay,alpha,alpha_min):
 
@@ -120,4 +124,6 @@ data.append(d1)
 data.append(d2)
 
 som(data,6,12,3,0.99,0.9,0.1)
+
 '''
+
