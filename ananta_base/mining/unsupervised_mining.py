@@ -1,6 +1,7 @@
 __author__ = 'gilgamesh'
 from clustering.gsom import gsom as gsom
 from clustering.kgsom import kgsom as kgsom
+from clustering.som import som as som
 from sklearn.cluster import KMeans
 import numpy as np
 import pandas as pd
@@ -21,16 +22,28 @@ def _get_prf(res_set):
     for m in modes:
         m=0
 
-
-
 class SOMStep:
 
+    def __init__(self,dimensions,x=10,y=10,alpha=0.99,alpha_min=0.9,decay=0.1):
+        self.dims = dimensions
+        self.num_x = x
+        self.num_y = y
+        self.alpha = alpha
+        self.alpha_min = alpha_min
+        self.decay = decay
+        self.mp = som.SOM(self.num_x,self.num_y,self.dims)
 
-    def __init__(self,dimensions):
-        '''som code here'''
     def execute(self,data):
-       '''som exec and pred'''
 
+        data=np.array(data)
+        try:
+            self.mp._train_map(data,self.alpha,self.alpha_min,self.decay)
+            points=[]
+            for inp in data:
+                points.append(self.mp._predict(np.array(inp)))
+            return np.array(points)
+        except:
+            return 'error occured while training / predicting the Self-Organizing Map'
 
 
 class UnsupervisedMiningProfile:
