@@ -66,7 +66,7 @@ class BitmapEncodingStep(object):
         return data
 '''
 
-class LabelEncodingStep(object):
+class LabelEncodingStep():
 
     def __init__(self,column_list):
         self.column_list=column_list
@@ -74,10 +74,9 @@ class LabelEncodingStep(object):
     def execute(self,data):
         print 'started label encoding step'
         le = LabelEncoder()
-        output_array = le.fit_transform(self.column_list[:,0])
-
-        for i in range(1,self.column_list[1]):
-            output_array=np.column_stack(output_array,le.fit_transform(self.column_list[:,i]))
+        output_array = le.fit_transform(data[self.column_list[0]])
+        for i in range(1,len(self.column_list)):
+            output_array=np.column_stack([output_array,le.fit_transform(data[self.column_list[i]])])
         print 'finished label encoding step'
         return output_array
 
