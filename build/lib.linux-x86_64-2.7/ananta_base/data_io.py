@@ -28,7 +28,10 @@ class FileLoadStep():
 
     def execute(self,data):
         if(self.filetype=="csv"):
+            print "Started Loading .csv file ",self.filepath
             data = pandas.read_csv(self.filepath)
         elif(self.filetype=="xls"):
+            print "Started Loading .xls file ",self.filepath
             data = pandas.read_excel(self.filepath)
+        print "Finished Loading File"
         return data
