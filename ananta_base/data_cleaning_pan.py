@@ -21,8 +21,10 @@ class IgnoreTupleStep:
         self.column_list = column_list
 
     def execute(self,data):
+        print 'started Ignore tuple step'
         for column in self.column_list:
             data = data.dropna(axis = 0,subset = [column])
+        print 'finished Ignore tuple step'
         return data
 
 class UseGlobalConstantStep:
@@ -32,12 +34,12 @@ class UseGlobalConstantStep:
         self.column_list = column_list
 
     def execute(self,data):
-        # self.constant
+        print 'started global constant step'
         cons_pos = 0
         for column in self.column_list:
             data[column] = data[column].fillna(self.constant[cons_pos])
             cons_pos +=1
-
+        print 'finished global constant step'
         return data
 
 class UseAttributeMeanStep:
@@ -46,8 +48,10 @@ class UseAttributeMeanStep:
         self.column_list = column_list
 
     def execute(self,data):
+        print 'started attribute mean step'
         for column in self.column_list:
             data[column] = data.fillna(data.mean())
+        print 'finished attribute mean step'
         return data
 
 class UseAttributeModeStep:
@@ -56,8 +60,10 @@ class UseAttributeModeStep:
         self.column_list = column_list
 
     def execute(self,data):
+        print 'started attribute mode step'
         for column in self.column_list:
             data[column] = data.fillna(data.mode())
+        print 'finished attribute mode step'
         return data
 
 class UseAttributeMedianStep:
@@ -66,8 +72,10 @@ class UseAttributeMedianStep:
         self.column_list = column_list
 
     def execute(self,data):
+        print 'started attribute median step'
         for column in self.column_list:
             data[column] = data.fillna(data.median())
+        print 'started attribute mode step'
         return data
 
 ########
