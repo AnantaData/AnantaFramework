@@ -29,6 +29,8 @@ class SupervisedMiningProfile:
         print 'done!'
         print 'setting training data'
         dataset.train_X = np.array(dataset.data.drop(self.col_Y, axis=1))
+        dataset.test_X=dataset.train_X
+
         print 'done'
         bmi=False
         print 'ready to execute profile...Executing!'
@@ -55,6 +57,7 @@ class TrainLogitStep:
         ohec=OneHotEncoder()
         x = ohec.fit_transform(x)
         self.clf.fit(x,y)
+        #print self.clf.predict(x)
         return self.clf, dataset, True
 
 
@@ -72,6 +75,8 @@ class TrainRanforStep:
         y = dataset.train_Y
 
         self.clf.fit(x,y)
+
+
         return self.clf, dataset, False
 
 
@@ -94,10 +99,16 @@ class PredictStep:
 
     def execute(self, dataset, classifier=None, ohec = False):
         print 'executing prediction...'
+
+        if dataset.test_X is None:
+
+            dataset.test_X=dataset.train_X
+            #print 'test',dataset.test_X
+
         if ohec:
             oh = OneHotEncoder()
-            dataset.test_X=oh.fit(dataset.test_X)
+            dataset.test_X=oh.fit_transform(dataset.test_X)
 
         dataset.pred_y = classifier.predict(dataset.test_X)
-
+        #print dataset.pred_y
         return None,dataset,False
