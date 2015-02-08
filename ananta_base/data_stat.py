@@ -17,11 +17,7 @@ def getStatistics(trainingSet, filename_prefix):
     to_file.write("Field,Count,Mean,St.Dev,Min,Q1,Median,Q3,Max\n")
     shutil.copyfileobj(from_file, to_file)
     to_file.close()
-    stat_save = "stat.csv"
-    to_file = open(stat_save,"w");
-    to_file.write("Field,Count,Mean,St.Dev,Min,Q1,Median,Q3,Max\n")
-    shutil.copyfileobj(from_file, to_file)
-    to_file.close()
+    shutil.copyfile(stat_save,"stat.csv")
     print "Finished tracking Statistics"
 
     types_save = str(filename_prefix)+"types.csv"
