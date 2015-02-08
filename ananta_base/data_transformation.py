@@ -3,6 +3,7 @@ __author__ = 'lakmal'
 import base
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import numpy as np
+import pandas as pd
 
 class DataTransformationProfile():
 
@@ -71,15 +72,21 @@ class LabelEncodingStep(object):
     def __init__(self,column_list):
         self.column_list=column_list
 
+    def __init__(self,column_list):
+        self.column_list=column_list
+
     def execute(self,data):
         print 'started label encoding step'
         le = LabelEncoder()
-        output_array = le.fit_transform(self.column_list[:,0])
 
-        for i in range(1,self.column_list[1]):
-            output_array=np.column_stack(output_array,le.fit_transform(self.column_list[:,i]))
+        for name in self.column_list:
+            print name
+            index = data.columns.get_loc(name)
+            encoded = le.fit_transform(data.iloc[:,index])
+            data[name] = encoded
+
         print 'finished label encoding step'
-        return output_array
+        return data
 
 class BinningStep(object):
 
