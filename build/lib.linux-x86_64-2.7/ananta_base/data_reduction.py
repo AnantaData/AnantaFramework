@@ -32,8 +32,8 @@ class DropColumnsByNameStep:
         self.columnNames= columnNames
 
     def execute(self,data):
-        return data.drop(self.columnNames,inplace=True,axis=1)  # columnNames is a list of strings
-
+        date = data.drop(self.columnNames,inplace=True,axis=1)  # columnNames is a list of strings
+        return data
 
 '''drop a list of columns from column index'''
 class DropColumnsByIndexStep:
@@ -42,8 +42,8 @@ class DropColumnsByIndexStep:
         self.columnIndexes = columnIndexes
 
     def execute(self,data):
-        return data.drop(self.columnIndexes,inplace=True,axis=1)  # columnIndexes is a list of strings
-
+        data = data.drop(self.columnIndexes,inplace=True,axis=1)  # columnIndexes is a list of strings
+        return data
 
 '''remove columns which are below a variance threshold'''
 class VarianceThresholdStep:
@@ -62,8 +62,9 @@ class VarianceThresholdStep:
                 dropList.append(i)
 
         x = DropColumnsByNameStep(dropList)
+        data = x.execute(data)
 
-        return x.execute(data)
+        return data
 
 
 '''select best k features - for classification'''

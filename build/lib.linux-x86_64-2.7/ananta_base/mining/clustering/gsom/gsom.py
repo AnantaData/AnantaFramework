@@ -62,8 +62,6 @@ class gsomap(object):
 
     map_neurons ={}
 
-
-
     def parallel_search_bmu(self, input_vector):
 
         mapsize=len(self.map_neurons.keys())
@@ -188,7 +186,6 @@ class gsomap(object):
             out= len(np.where(np.logical_and(b1,b2))[0])
 
         return out/len(b1)
-
 
 
     def process_input(self,input_np_array):

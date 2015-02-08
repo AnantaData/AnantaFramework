@@ -57,8 +57,6 @@ class gsomap(object):
 
     map_neurons ={}
 
-
-
     def classified_inputs(self):
         classified_inputs = []
         for a in self.map_neurons.keys():

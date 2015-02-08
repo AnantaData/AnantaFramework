@@ -1,6 +1,7 @@
 __author__ = 'gilgamesh'
 from clustering.gsom import gsom as gsom
 from clustering.kgsom import kgsom as kgsom
+from clustering.som import som as som
 from sklearn.cluster import KMeans
 import numpy as np
 import pandas as pd
@@ -26,10 +27,26 @@ def _get_prf(res_set):
 class SOMStep:
 
 
-    def __init__(self,dimensions):
-        '''som code here'''
+    def __init__(self,dimensions,num_x=10,num_y=10,decay=0.99,alpha=0.9,alpha_min=0.1):
+        self.dims = dimensions
+        self.x = num_x
+        self.y = num_y
+        self.decay = decay
+        self.alpha = alpha
+        self.alpha_min =alpha_min
+        self.mp = som.som(self.x,self.y,self.dims)
+
     def execute(self,data):
-       '''som exec and pred'''
+        data = np.array(data)
+        print "executing on data"
+        self.mp._train_map(data,self.alpha,self.alpha_min,self.decay)
+        points = []
+        print len(self.mp.neurons)
+        print 'predicting'
+        for inp in data:
+            points.append(self.mp._predict(inp))
+        data = np.array(points).astype(int)
+        return data
 
 
 

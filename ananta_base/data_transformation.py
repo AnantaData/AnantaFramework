@@ -18,7 +18,7 @@ class DataTransformationProfile():
             data = step.execute(data)
         dataset.data = data
 
-
+'''
 class EncodingStep(object):
 
     def __init__(self,encoding,fields):
@@ -51,6 +51,35 @@ class EncodingStep(object):
 
         return output_array
 
+class BitmapEncodingStep(object):
+
+    def __init__(self,column_list):
+        self.column_list=column_list
+
+    def execute(self,data):
+        bme = OneHotEncoder()
+        for field in self.column_list:
+            print data[field]
+            output_array = bme.fit(np.array(data[field]))
+            print output_array
+            data[field] = bme.transform(output_array)
+        return data
+'''
+
+class LabelEncodingStep(object):
+
+    def __init__(self,column_list):
+        self.column_list=column_list
+
+    def execute(self,data):
+        le = LabelEncoder()
+        output_array = le.fit_transform(self.column_list[:,0])
+
+        for i in range(1,self.column_list[1]):
+            output_array=np.column_stack(output_array,le.fit_transform(self.column_list[:,i]))
+
+        return output_array
+
 class BinningStep(object):
 
     def __init__(self):
@@ -62,7 +91,7 @@ class BinningStep(object):
 
         for i in range(self.feature_set.shape[0]):
             #account for bin_algs
-            dataset[self.feature_set[i]]=self.Bin_Uniform_depth(dataset[self.feature_set[i]],num_bins[i])
+            dataset[self.feature_set[i]]=self.Bin_Uniform_depth(dataset[self.feature_set[i]],self.num_bins[i])
 
         return dataset
 
