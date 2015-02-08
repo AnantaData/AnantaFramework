@@ -22,6 +22,7 @@ def getStatistics(trainingSet, filename_prefix):
     df = trainingSet.data
     types_list = df.dtypes
     types_list.to_csv(types_save, sep=",", encoding="utf-8")
+    types_list.to_csv("types.csv", sep=",", encoding="utf-8")
     print "Finished tracking DataTypes"
 
     data_save = str(filename_prefix)+"data.csv"
