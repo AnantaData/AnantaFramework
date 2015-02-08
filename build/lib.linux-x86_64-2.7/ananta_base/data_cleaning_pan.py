@@ -22,7 +22,7 @@ class IgnoreTupleStep:
 
     def execute(self,data):
         for column in self.column_list:
-            data = data.dropna(subset = [column])
+            data = data.dropna(axis = 0,subset = [column])
         return data
 
 class UseGlobalConstantStep:

@@ -50,7 +50,6 @@ class EncodingStep(object):
             output_array=np.column_stack(output_array,le.fit_transform(inp_np_array[:,i]))
 
         return output_array
-'''
 
 class BitmapEncodingStep(object):
 
@@ -65,6 +64,7 @@ class BitmapEncodingStep(object):
             print output_array
             data[field] = bme.transform(output_array)
         return data
+'''
 
 class LabelEncodingStep(object):
 
