@@ -74,13 +74,15 @@ class VarianceThresholdStep:
 '''select best k features - for classification'''
 class SelectKBestStep:
 
-    def __init__(self,kFeatures):
+    def __init__(self,kFeatures,x,y):
         self.kFeatures = kFeatures
+        self.features = x
+        self.target = y
 
     def execute(self,data):
         print 'started finding the best ',self.kFeatures,' columns'
         transformer =  SelectKBest(score_func=chi2, k=self.kFeatures)
-        output = transformer.fit(data.x,data.y).get_support(indices=True)     # data.x are features of the dataset, data.y are the targets
+        output = transformer.fit(self.features,self.target).get_support(indices=True)     # data.x are features of the dataset, data.y are the targets
 
         newData = data.ix[:,(output)]
         print 'finished finding the best ',self.kFeatures,' columns'
