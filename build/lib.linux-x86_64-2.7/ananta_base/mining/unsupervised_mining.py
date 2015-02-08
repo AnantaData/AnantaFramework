@@ -22,32 +22,28 @@ def _get_prf(res_set):
     for m in modes:
         m=0
 
-
-
 class SOMStep:
 
-
-    def __init__(self,dimensions,num_x=10,num_y=10,decay=0.99,alpha=0.9,alpha_min=0.1):
+    def __init__(self,dimensions,x=10,y=10,alpha=0.99,alpha_min=0.9,decay=0.1):
         self.dims = dimensions
-        self.x = num_x
-        self.y = num_y
-        self.decay = decay
+        self.num_x = x
+        self.num_y = y
         self.alpha = alpha
-        self.alpha_min =alpha_min
-        self.mp = som.som(self.x,self.y,self.dims)
+        self.alpha_min = alpha_min
+        self.decay = decay
+        self.mp = som.SOM(self.num_x,self.num_y,self.dims)
 
     def execute(self,data):
-        data = np.array(data)
-        print "executing on data"
-        self.mp._train_map(data,self.alpha,self.alpha_min,self.decay)
-        points = []
-        print len(self.mp.neurons)
-        print 'predicting'
-        for inp in data:
-            points.append(self.mp._predict(inp))
-        data = np.array(points).astype(int)
-        return data
 
+        data=np.array(data)
+        try:
+            self.mp._train_map(data,self.alpha,self.alpha_min,self.decay)
+            points=[]
+            for inp in data:
+                points.append(self.mp._predict(np.array(inp)))
+            return np.array(points)
+        except:
+            return 'error occured while training / predicting the Self-Organizing Map'
 
 
 class UnsupervisedMiningProfile:
