@@ -1,5 +1,5 @@
-class KGSOM():
+'''class KGSOM():
 
-    def __init__(self, ):
+    def __init__(self, ):'''
 
 

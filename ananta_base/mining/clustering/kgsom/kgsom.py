@@ -213,7 +213,7 @@ class gsomap(object):
                 return
             for l in self.map_neurons.keys():
                 '''self.map_neurons[l].hits <= self.prun_coef*(0.1**k)*self.count*(9**(j)) or'''
-                if (self.map_neurons[l].hits <= self.prun_coef*(0.1**k)*self.count*(9**(j)) or self.map_neurons[l].time <= j*self.t_time/k) and len(self.map_neurons)>=100:
+                if self.map_neurons[l].hits <= self.prun_coef*(0.1**k)*self.count*(9**(j)) or self.map_neurons[l].time <= self.t_time*0.75:
                     del self.map_neurons[l]
 
         return
