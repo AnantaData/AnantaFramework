@@ -72,26 +72,8 @@ class LabelEncodingStep():
     def __init__(self,column_list):
         self.column_list=column_list
 
-    def __init__(self,column_list):
-        self.column_list=column_list
-
     def execute(self,data):
-        print 'started label encoding step'
-        le = LabelEncoder()
-<<<<<<< HEAD
 
-        for name in self.column_list:
-            print name
-            index = data.columns.get_loc(name)
-            encoded = le.fit_transform(data.iloc[:,index])
-            data[name] = encoded
-
-=======
-        output_array = le.fit_transform(data[self.column_list[0]])
-        for i in range(1,len(self.column_list)):
-            output_array=np.column_stack([output_array,le.fit_transform(data[self.column_list[i]])])
->>>>>>> 65308e2aa46d79876fe7f99e9c515ea46b7fc82a
-        print 'finished label encoding step'
         return data
 
 class BinningStep(object):
