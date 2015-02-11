@@ -81,8 +81,9 @@ class LabelEncodingStep():
         otherCols = set(data.columns).difference(set(self.column_list))
         df1 = data[list(otherCols)]
         df2 = pd.DataFrame(output_array,columns=self.column_list)
+        df1 = df1.join(df2,how='left')
         print 'finished label encoding step'
-        return df1.join(df2)
+        return df1
 
 class BinningStep(object):
 
