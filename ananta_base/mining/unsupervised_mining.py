@@ -104,7 +104,7 @@ class KGSOMStep:
 
     def __init__(self,dimensions):
         self.dims = dimensions
-        self.mp = kgsom.gsomap(SP=0.9999,dims=self.dims,nr_s=10,lr_s=0.01,fd=0.999,lrr=0.95,sig2=1000,prune=0.8)
+        self.mp = kgsom.gsomap(SP=0.999999,dims=self.dims,nr_s=10,lr_s=0.01,fd=0.999,lrr=0.95,sig2=100000,prune=0.75)
 
     def execute(self,data):
         data = np.array(data)
