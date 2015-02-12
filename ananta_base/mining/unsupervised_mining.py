@@ -7,6 +7,12 @@ import numpy as np
 import pandas as pd
 from scipy.stats import mode
 from sklearn.cluster import DBSCAN
+def normalize(arr):
+    for i in range(arr.shape[1]):
+
+        m = np.array([np.abs(np.min(arr[:,i])) for j in range(arr.shape[0])] )
+        arr[:,i]+=m
+    return arr
 
 #### soem methods to calculate clustering quality measures ####
 def _get_prf(res_set):
@@ -74,6 +80,8 @@ class GSOMStep:
             points=[]
             for inp in data:
                 points.append(self.mp.predict_point(np.array(inp)))
+            
+            data = normalize((np.array(points).astype(int)))
             df = pd.DataFrame(columns = ['x', 'y', 'c'])
             x =[]
             y = []
@@ -107,7 +115,7 @@ class KGSOMStep:
         print "predicting"
         for inp in data:
             points.append(self.mp.predict_point(inp))
-        data = np.array(points).astype(int)
+        data = normalize(np.array(points).astype(int))
 
         df = pd.DataFrame(columns = ['x', 'y', 'c'])
         x =[]
