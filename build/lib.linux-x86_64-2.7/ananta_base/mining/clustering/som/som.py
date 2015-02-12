@@ -22,7 +22,7 @@ class SOM(object):
         self.radius=min(x_size,y_size)/2
 
     '''
-    _get_min_dissimilarity calculate the dissimilarity measures (here the eculidean distance) to all the neurons for a given
+    _get_min_dissimilarity calculate the dissimilarity measures (here the euclidean distance) to all the neurons for a given
     training/input vector and returns the closestly similar vector's coordinates as output
     '''
     def _get_min_dissimilarity(self,input_vector):
