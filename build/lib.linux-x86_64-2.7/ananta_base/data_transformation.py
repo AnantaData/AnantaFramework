@@ -3,6 +3,7 @@ __author__ = 'lakmal'
 import base
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import numpy as np
+import pandas as pd
 
 class DataTransformationProfile():
 
@@ -50,7 +51,6 @@ class EncodingStep(object):
             output_array=np.column_stack(output_array,le.fit_transform(inp_np_array[:,i]))
 
         return output_array
-'''
 
 class BitmapEncodingStep(object):
 
@@ -65,6 +65,7 @@ class BitmapEncodingStep(object):
             print output_array
             data[field] = bme.transform(output_array)
         return data
+'''
 
 class LabelEncodingStep(object):
 
@@ -72,13 +73,17 @@ class LabelEncodingStep(object):
         self.column_list=column_list
 
     def execute(self,data):
+        print 'started label encoding step'
         le = LabelEncoder()
-        output_array = le.fit_transform(self.column_list[:,0])
-
-        for i in range(1,self.column_list[1]):
-            output_array=np.column_stack(output_array,le.fit_transform(self.column_list[:,i]))
-
-        return output_array
+        output_array = le.fit_transform(data[self.column_list[0]])
+        for i in range(1,len(self.column_list)):
+            output_array=np.column_stack([output_array,le.fit_transform(data[self.column_list[i]])])
+        otherCols = set(data.columns).difference(set(self.column_list))
+        df1 = data[list(otherCols)]
+        df2 = pd.DataFrame(output_array,columns=self.column_list)
+        df1 = df1.join(df2,how='left')
+        print 'finished label encoding step'
+        return df1
 
 class BinningStep(object):
 
@@ -87,12 +92,12 @@ class BinningStep(object):
         self.bin_algs = np.array([])
         self.num_bins = np.array([])
 
-    def executeStep(self,dataset):
-
+    def execute(self,dataset):
+        print 'started binning step'
         for i in range(self.feature_set.shape[0]):
             #account for bin_algs
             dataset[self.feature_set[i]]=self.Bin_Uniform_depth(dataset[self.feature_set[i]],self.num_bins[i])
-
+        print 'finished binning step'
         return dataset
 
     def Bin_Uniform_depth(self,inp_np_array, num_of_bins):

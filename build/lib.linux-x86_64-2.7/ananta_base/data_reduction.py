@@ -8,10 +8,10 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import SelectPercentile
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import numpy as np
+import pandas as pd
 
 
-
-class DataReductionProfile(base.Profile):
+class DataReductionProfile():
 
     def __init__(self):
         self.steps = []
@@ -26,33 +26,38 @@ class DataReductionProfile(base.Profile):
         dataset.data = data
 
 '''drop a list of columns from column names'''
-class DropColumnsByNameStep:
+class DropColumnsByNameStep(object):
 
     def __init__(self,columnNames):
         self.columnNames= columnNames
 
     def execute(self,data):
-        date = data.drop(self.columnNames,inplace=True,axis=1)  # columnNames is a list of strings
-        return data
+        print 'started dropping columns step'
+        data1 = pd.DataFrame(data)
+        data1.drop(self.columnNames,inplace=True,axis=1)  # columnNames is a list of strings
+        print 'finished dropping columns step'
+        return data1
 
 '''drop a list of columns from column index'''
-class DropColumnsByIndexStep:
+class DropColumnsByIndexStep(object):
 
     def __init__(self,columnIndexes):
         self.columnIndexes = columnIndexes
 
     def execute(self,data):
+        print 'started dropping columns by index step'
         data = data.drop(self.columnIndexes,inplace=True,axis=1)  # columnIndexes is a list of strings
+        print 'finished dropping columns by index step'
         return data
 
 '''remove columns which are below a variance threshold'''
-class VarianceThresholdStep:
+class VarianceThresholdStep(object):
 
     def __init__(self,varianceThreshold):
         self.varianceThreshold = varianceThreshold
 
     def execute(self,data):
-
+        print 'started dropping columns based on Variance'
         listOfNames = data.var(axis=0, skipna=True, level=None, numeric_only=True)
 
         dropList = []
@@ -63,23 +68,23 @@ class VarianceThresholdStep:
 
         x = DropColumnsByNameStep(dropList)
         data = x.execute(data)
-
+        print 'finished dropping columns step'
         return data
 
 
 '''select best k features - for classification'''
-class SelectKBestStep:
+class SelectKBestStep(object):
 
     def __init__(self,kFeatures):
         self.kFeatures = kFeatures
 
     def execute(self,data):
-
+        print 'started finding the best ',self.kFeatures,' columns'
         transformer =  SelectKBest(score_func=chi2, k=self.kFeatures)
         output = transformer.fit(data.x,data.y).get_support(indices=True)     # data.x are features of the dataset, data.y are the targets
 
         newData = data.ix[:,(output)]
-
+        print 'finished finding the best ',self.kFeatures,' columns'
         return newData
 
 
