@@ -51,7 +51,7 @@ class DropColumnsByIndexStep(object):
         return data
 
 '''remove columns which are below a variance threshold'''
-class VarianceThresholdStep(object):
+class VarianceThresholdStep():
 
     def __init__(self,varianceThreshold):
         self.varianceThreshold = varianceThreshold
