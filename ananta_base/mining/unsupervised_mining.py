@@ -109,7 +109,7 @@ class KGSOMStep:
     def execute(self,data):
         data = np.array(data)
         print "executing on data"
-        self.mp.process_batch(data)
+        self.mp.process_batch(data,3)
         points=[]
         print len(self.mp.map_neurons)
         print "predicting"
