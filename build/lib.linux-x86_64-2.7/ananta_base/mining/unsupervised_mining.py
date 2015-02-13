@@ -80,7 +80,7 @@ class GSOMStep:
             points=[]
             for inp in data:
                 points.append(self.mp.predict_point(np.array(inp)))
-            
+
             data = normalize((np.array(points).astype(int)))
             df = pd.DataFrame(columns = ['x', 'y', 'c'])
             x =[]
