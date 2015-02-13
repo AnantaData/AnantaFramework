@@ -5,7 +5,13 @@ import pandas as pd
 def getStatistics(trainingSet, filename_prefix):
     print "Started tracking Statistics and Data"
     stat = trainingSet.data.describe().transpose()
-    columns = ["Count","Mean","St.Dev","Min","Q1","Median","Q3","Max"]
+    print stat.shape
+    if(stat.shape[1]== 4):
+        columns = ["Count","Mean","St.Dev","Min"]
+        writeLine = "Field,Count,Mean,St.Dev,Min\n"
+    else:
+        columns = ["Count","Mean","St.Dev","Min","Q1","Median","Q3","Max"]
+        writeLine = "Field,Count,Mean,St.Dev,Min,Q1,Median,Q3,Max\n"
     stat.columns = columns
     stat.to_csv("stat_temp.csv", sep=",", encoding="utf-8")
 
@@ -13,7 +19,7 @@ def getStatistics(trainingSet, filename_prefix):
     from_file.readline() # and discard
     stat_save = str(filename_prefix)+"stat.csv"
     to_file = open(stat_save,"w");
-    to_file.write("Field,Count,Mean,St.Dev,Min,Q1,Median,Q3,Max\n")
+    to_file.write(writeLine)
     shutil.copyfileobj(from_file, to_file)
     from_file.close()
     to_file.close()

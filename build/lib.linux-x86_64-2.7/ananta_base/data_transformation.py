@@ -3,6 +3,7 @@ __author__ = 'lakmal'
 import base
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import numpy as np
+import pandas as pd
 
 class DataTransformationProfile():
 
@@ -20,18 +21,15 @@ class DataTransformationProfile():
 
 '''
 class EncodingStep(object):
-
     def __init__(self,encoding,fields):
         self.encoding = encoding
         self.fields = fields
-
     def execute(self,data):
         if self.encoding == 'one_hot' :
             dataset=self.BitmapEncode(data,self.fields)
         elif self.encoding == 'label':
             dataset=self.LabelEncode(data,self.fields)
         return dataset
-
     def BitmapEncode(self,data,fields):
         bme = OneHotEncoder()
         for field in fields:
@@ -40,22 +38,15 @@ class EncodingStep(object):
             print output_array
             data[field] = bme.transform(output_array)
         return data
-
     def LabelEncode(self, inp_np_array ):
-
         le = LabelEncoder()
         output_array = le.fit_transform(inp_np_array[:,0])
-
         for i in range(1,inp_np_array[1]):
             output_array=np.column_stack(output_array,le.fit_transform(inp_np_array[:,i]))
-
         return output_array
-
 class BitmapEncodingStep(object):
-
     def __init__(self,column_list):
         self.column_list=column_list
-
     def execute(self,data):
         bme = OneHotEncoder()
         for field in self.column_list:
@@ -66,7 +57,7 @@ class BitmapEncodingStep(object):
         return data
 '''
 
-class LabelEncodingStep(object):
+class LabelEncodingStep():
 
     def __init__(self,column_list):
         self.column_list=column_list
@@ -74,12 +65,15 @@ class LabelEncodingStep(object):
     def execute(self,data):
         print 'started label encoding step'
         le = LabelEncoder()
-        output_array = le.fit_transform(self.column_list[:,0])
-
-        for i in range(1,self.column_list[1]):
-            output_array=np.column_stack(output_array,le.fit_transform(self.column_list[:,i]))
+        output_array = le.fit_transform(data[self.column_list[0]])
+        for i in range(1,len(self.column_list)):
+            output_array=np.column_stack([output_array,le.fit_transform(data[self.column_list[i]])])
+        otherCols = set(data.columns).difference(set(self.column_list))
+        df1 = data[list(otherCols)]
+        df2 = pd.DataFrame(output_array,columns=self.column_list)
+        df1 = df1.join(df2,how='left')
         print 'finished label encoding step'
-        return output_array
+        return df1
 
 class BinningStep(object):
 

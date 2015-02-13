@@ -8,7 +8,7 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import SelectPercentile
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import numpy as np
-
+import pandas as pd
 
 
 class DataReductionProfile():
@@ -26,19 +26,20 @@ class DataReductionProfile():
         dataset.data = data
 
 '''drop a list of columns from column names'''
-class DropColumnsByNameStep:
+class DropColumnsByNameStep(object):
 
     def __init__(self,columnNames):
         self.columnNames= columnNames
 
     def execute(self,data):
         print 'started dropping columns step'
-        date = data.drop(self.columnNames,inplace=True,axis=1)  # columnNames is a list of strings
+        data1 = pd.DataFrame(data)
+        data1.drop(self.columnNames,inplace=True,axis=1)  # columnNames is a list of strings
         print 'finished dropping columns step'
-        return data
+        return data1
 
 '''drop a list of columns from column index'''
-class DropColumnsByIndexStep:
+class DropColumnsByIndexStep(object):
 
     def __init__(self,columnIndexes):
         self.columnIndexes = columnIndexes
@@ -50,7 +51,7 @@ class DropColumnsByIndexStep:
         return data
 
 '''remove columns which are below a variance threshold'''
-class VarianceThresholdStep:
+class VarianceThresholdStep():
 
     def __init__(self,varianceThreshold):
         self.varianceThreshold = varianceThreshold
@@ -72,7 +73,7 @@ class VarianceThresholdStep:
 
 
 '''select best k features - for classification'''
-class SelectKBestStep:
+class SelectKBestStep(object):
 
     def __init__(self,kFeatures,x,y):
         self.kFeatures = kFeatures

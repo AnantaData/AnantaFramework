@@ -11,7 +11,6 @@ class SOM(object):
     Constructor Function: Takes as input the following parameters x_size : the width of the map desired
     y_size : the height of the  map desired input_dims : the dimensinality of the vectors the som is trained to deal with
     '''
-
     def __init__(self,x_size,y_size,input_dims):
         self.num_x=x_size
         self.num_y=y_size
@@ -22,7 +21,7 @@ class SOM(object):
         self.radius=min(x_size,y_size)/2
 
     '''
-    _get_min_dissimilarity calculate the dissimilarity measures (here the eculidean distance) to all the neurons for a given
+    _get_min_dissimilarity calculate the dissimilarity measures (here the euclidean distance) to all the neurons for a given
     training/input vector and returns the closestly similar vector's coordinates as output
     '''
     def _get_min_dissimilarity(self,input_vector):
