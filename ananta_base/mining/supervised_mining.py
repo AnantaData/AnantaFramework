@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.svm import SVC
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
+import pandas as pd
 
 class SupervisedMiningProfile:
 
@@ -110,5 +111,17 @@ class PredictStep:
             dataset.test_X=oh.fit_transform(dataset.test_X)
 
         dataset.pred_y = classifier.predict(dataset.test_X)
+        labs = dataset.train_Y
+        preds = dataset.pred_y
+        output = np.column_stack((preds,labs))
+        out = pd.DataFrame(data=output,columns=['churn','class'])
+
+        out.sort(columns='churn')
+
+        ranks = np.array([i for i in range(labs.shape[0])])
+        out['rankorder'] = pd.Series(ranks, index=out.index)
+
+        out.to_csv('supout.csv')
+
         #print dataset.pred_y
         return None,dataset,False

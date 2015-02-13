@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 
-class DataReductionProfile():
+class DataReductionProfile:
 
     def __init__(self):
         self.steps = []
@@ -26,7 +26,7 @@ class DataReductionProfile():
         dataset.data = data
 
 '''drop a list of columns from column names'''
-class DropColumnsByNameStep(object):
+class DropColumnsByNameStep:
 
     def __init__(self,columnNames):
         self.columnNames= columnNames
@@ -39,7 +39,7 @@ class DropColumnsByNameStep(object):
         return data1
 
 '''drop a list of columns from column index'''
-class DropColumnsByIndexStep(object):
+class DropColumnsByIndexStep:
 
     def __init__(self,columnIndexes):
         self.columnIndexes = columnIndexes
@@ -51,7 +51,7 @@ class DropColumnsByIndexStep(object):
         return data
 
 '''remove columns which are below a variance threshold'''
-class VarianceThresholdStep():
+class VarianceThresholdStep:
 
     def __init__(self,varianceThreshold):
         self.varianceThreshold = varianceThreshold
@@ -73,7 +73,7 @@ class VarianceThresholdStep():
 
 
 '''select best k features - for classification'''
-class SelectKBestStep(object):
+class SelectKBestStep:
 
     def __init__(self,kFeatures,x,y):
         self.kFeatures = kFeatures
