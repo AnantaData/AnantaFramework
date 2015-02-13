@@ -216,6 +216,8 @@ class gsomap(object):
                 if self.map_neurons[l].hits <= self.prun_coef*(0.1**k)*self.count*(9**(j)) or self.map_neurons[l].time <= self.t_time*0.75:
                     del self.map_neurons[l]
 
+            print j,"th Iteration finished"
+
         return
 
 
