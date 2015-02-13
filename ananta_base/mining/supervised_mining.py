@@ -116,7 +116,7 @@ class PredictStep:
         output = np.column_stack((preds,labs))
         out = pd.DataFrame(data=output,columns=['churn','class'])
 
-        out.sort(columns='churn')
+        out=out.sort(columns='churn')
 
         ranks = np.array([i for i in range(labs.shape[0])])
         out['rankorder'] = pd.Series(ranks, index=out.index)
